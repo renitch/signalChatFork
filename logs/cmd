@@ -1,0 +1,300 @@
+(ReceiveHelper.java:217)
+        at org.asamk.signal.manager.helper.ReceiveHelper.receiveMessages(Receive
+Helper.java:108)
+        at org.asamk.signal.manager.internal.ManagerImpl.receiveMessages(Manager
+Impl.java:1140)
+        at org.asamk.signal.manager.internal.ManagerImpl.receiveMessages(Manager
+Impl.java:1112)
+        at org.asamk.signal.commands.ReceiveCommand.handleCommand(ReceiveCommand
+.java:86)
+        at org.asamk.signal.commands.CommandHandler.handleLocalCommand(CommandHa
+ndler.java:35)
+        at org.asamk.signal.App.handleLocalCommand(App.java:273)
+        at org.asamk.signal.App.handleCommand(App.java:174)
+        at org.asamk.signal.App.init(App.java:139)
+        at org.asamk.signal.Main.main(Main.java:56)
+Caused by: org.signal.libsignal.protocol.InvalidKeyIdException: No such kyber pr
+e key record: 6407705
+        at org.asamk.signal.manager.storage.prekeys.KyberPreKeyStore.loadKyberPr
+eKey(KyberPreKeyStore.java:55)
+        at org.asamk.signal.manager.storage.protocol.SignalProtocolStore.loadKyb
+erPreKey(SignalProtocolStore.java:208)
+        at org.signal.libsignal.internal.Native.SessionCipher_DecryptPreKeySigna
+lMessage(Native Method)
+        at org.signal.libsignal.protocol.SessionCipher.decrypt(SessionCipher.jav
+a:127)
+        at org.signal.libsignal.metadata.SealedSessionCipher.decrypt(SealedSessi
+onCipher.java:232)
+        at org.signal.libsignal.metadata.SealedSessionCipher.decrypt(SealedSessi
+onCipher.java:184)
+        ... 14 common frames omitted
+2023-12-06T08:45:32.310+0200 [main] DEBUG o.a.s.m.h.IncomingMessageHandler - Rec
+eived invalid message, requesting message resend.
+Envelope from: ?Дима Симоненко? 97780c38-6d0a-4b79-911a-5ac1eb9139a4 (device: 2)
+ to +380501058562. Body: MessageEnvelope[sourceAddress=Optional[RecipientAddress
+[uuid=Optional[97780c38-6d0a-4b79-911a-5ac1eb9139a4], number=Optional.empty, use
+rname=Optional.empty]], sourceDevice=2, timestamp=1701829254376, serverReceivedT
+imestamp=1701845133781, serverDeliveredTimestamp=1701845134388, isUnidentifiedSe
+nder=true, receipt=Optional.empty, typing=Optional.empty, data=Optional.empty, e
+dit=Optional.empty, sync=Optional.empty, call=Optional.empty, story=Optional.emp
+ty]
+Timestamp: 1701829254376 (2023-12-06T02:20:54.376Z)
+Server timestamps: received: 1701845133781 (2023-12-06T06:45:33.781Z) delivered:
+ 1701845134388 (2023-12-06T06:45:34.388Z)
+Sent by unidentified/sealed sender
+Exception: {}
+
+2023-12-06T08:45:32.313+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - H
+andling message actions
+2023-12-06T08:45:32.313+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - E
+xecuting action SendRetryMessageRequestAction
+2023-12-06T08:45:32.324+0200 [main] DEBUG o.a.signal.manager.helper.SendHelper -
+ Sending retry receipt for 1701829254376 to RecipientId[id=4], device: 2
+2023-12-06T08:45:32.477+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\session.rs:211: set_unacknowledged_pre_key_message for: 97780c38-6d0a-4b79-
+911a-5ac1eb9139a4.1 with preKeyId: <none>
+2023-12-06T08:45:32.477+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\state\session.rs:668: Skipping archive, current session state is fresh
+2023-12-06T08:45:32.496+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\session.rs:211: set_unacknowledged_pre_key_message for: 97780c38-6d0a-4b79-
+911a-5ac1eb9139a4.2 with preKeyId: <none>
+2023-12-06T08:45:32.497+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\state\session.rs:668: Skipping archive, current session state is fresh
+2023-12-06T08:45:32.658+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - C
+hecking for new message from server
+2023-12-06T08:45:32.659+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - R
+etrieved 1 envelopes!
+2023-12-06T08:45:32.661+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - N
+ew message received from server
+2023-12-06T08:45:32.662+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\sealed_sender.rs:432: deserialized UnidentifiedSenderMessageContent from 97
+780c38-6d0a-4b79-911a-5ac1eb9139a4.2 with type PreKey
+2023-12-06T08:45:32.666+0200 [main] ERROR LibSignal - [libsignal]: rust\protocol
+\src\session_cipher.rs:218: Message from 97780c38-6d0a-4b79-911a-5ac1eb9139a4.2
+failed to decrypt; sender ratchet public key 00a480fc4bff523406b2ae40c1088676e70
+42d5ba9fd14525ef6e09122700004 message counter 1
+Candidate session 0 failed with 'error in method call 'loadKyberPreKey': excepti
+on org.signal.libsignal.protocol.InvalidKeyIdException "No such kyber pre key re
+cord: 6407705"', had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 1 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 2 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 3 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 4 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 5 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 6 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 7 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 8 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 9 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 10 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 11 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 12 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 13 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 14 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 15 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 16 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 17 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 18 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 19 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 20 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 21 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 22 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 23 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 24 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 25 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 26 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 27 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 28 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 29 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 30 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 31 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 32 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 33 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 34 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 35 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 36 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 37 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 38 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 39 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+Candidate session 40 had 1 receiver chains
+Receiver chain with sender ratchet public key 0566bff7b122103e8ab9df47a0d660c15d
+12a7a1b971393c8e86f35cb8cc3e5441 chain key index 0
+2023-12-06T08:45:32.681+0200 [main] DEBUG o.a.s.m.h.IncomingMessageHandler - Fai
+led to decrypt incoming message
+org.signal.libsignal.metadata.ProtocolInvalidKeyIdException: org.signal.libsigna
+l.protocol.InvalidKeyIdException: No such kyber pre key record: 6407705
+        at org.signal.libsignal.metadata.SealedSessionCipher.decrypt(SealedSessi
+onCipher.java:198)
+        at org.whispersystems.signalservice.api.crypto.SignalSealedSessionCipher
+.decrypt(SignalSealedSessionCipher.java:57)
+        at org.whispersystems.signalservice.api.crypto.SignalServiceCipher.decry
+ptInternal(SignalServiceCipher.java:197)
+        at org.whispersystems.signalservice.api.crypto.SignalServiceCipher.decry
+pt(SignalServiceCipher.java:139)
+        at org.asamk.signal.manager.helper.IncomingMessageHandler.handleEnvelope
+(IncomingMessageHandler.java:141)
+        at org.asamk.signal.manager.helper.ReceiveHelper.receiveMessagesInternal
+(ReceiveHelper.java:217)
+        at org.asamk.signal.manager.helper.ReceiveHelper.receiveMessages(Receive
+Helper.java:108)
+        at org.asamk.signal.manager.internal.ManagerImpl.receiveMessages(Manager
+Impl.java:1140)
+        at org.asamk.signal.manager.internal.ManagerImpl.receiveMessages(Manager
+Impl.java:1112)
+        at org.asamk.signal.commands.ReceiveCommand.handleCommand(ReceiveCommand
+.java:86)
+        at org.asamk.signal.commands.CommandHandler.handleLocalCommand(CommandHa
+ndler.java:35)
+        at org.asamk.signal.App.handleLocalCommand(App.java:273)
+        at org.asamk.signal.App.handleCommand(App.java:174)
+        at org.asamk.signal.App.init(App.java:139)
+        at org.asamk.signal.Main.main(Main.java:56)
+Caused by: org.signal.libsignal.protocol.InvalidKeyIdException: No such kyber pr
+e key record: 6407705
+        at org.asamk.signal.manager.storage.prekeys.KyberPreKeyStore.loadKyberPr
+eKey(KyberPreKeyStore.java:55)
+        at org.asamk.signal.manager.storage.protocol.SignalProtocolStore.loadKyb
+erPreKey(SignalProtocolStore.java:208)
+        at org.signal.libsignal.internal.Native.SessionCipher_DecryptPreKeySigna
+lMessage(Native Method)
+        at org.signal.libsignal.protocol.SessionCipher.decrypt(SessionCipher.jav
+a:127)
+        at org.signal.libsignal.metadata.SealedSessionCipher.decrypt(SealedSessi
+onCipher.java:232)
+        at org.signal.libsignal.metadata.SealedSessionCipher.decrypt(SealedSessi
+onCipher.java:184)
+        ... 14 common frames omitted
+2023-12-06T08:45:32.700+0200 [main] DEBUG o.a.s.m.h.IncomingMessageHandler - Rec
+eived invalid message, requesting message resend.
+Envelope from: ?Дима Симоненко? 97780c38-6d0a-4b79-911a-5ac1eb9139a4 (device: 2)
+ to +380501058562. Body: MessageEnvelope[sourceAddress=Optional[RecipientAddress
+[uuid=Optional[97780c38-6d0a-4b79-911a-5ac1eb9139a4], number=Optional.empty, use
+rname=Optional.empty]], sourceDevice=2, timestamp=1701840254380, serverReceivedT
+imestamp=1701845134425, serverDeliveredTimestamp=1701845136205, isUnidentifiedSe
+nder=true, receipt=Optional.empty, typing=Optional.empty, data=Optional.empty, e
+dit=Optional.empty, sync=Optional.empty, call=Optional.empty, story=Optional.emp
+ty]
+Timestamp: 1701840254380 (2023-12-06T05:24:14.380Z)
+Server timestamps: received: 1701845134425 (2023-12-06T06:45:34.425Z) delivered:
+ 1701845136205 (2023-12-06T06:45:36.205Z)
+Sent by unidentified/sealed sender
+Exception: {}
+
+2023-12-06T08:45:32.704+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - H
+andling message actions
+2023-12-06T08:45:32.705+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - E
+xecuting action SendRetryMessageRequestAction
+2023-12-06T08:45:32.723+0200 [main] DEBUG o.a.signal.manager.helper.SendHelper -
+ Sending retry receipt for 1701840254380 to RecipientId[id=4], device: 2
+2023-12-06T08:45:32.875+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\session.rs:211: set_unacknowledged_pre_key_message for: 97780c38-6d0a-4b79-
+911a-5ac1eb9139a4.1 with preKeyId: <none>
+2023-12-06T08:45:32.875+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\state\session.rs:668: Skipping archive, current session state is fresh
+2023-12-06T08:45:32.891+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\session.rs:211: set_unacknowledged_pre_key_message for: 97780c38-6d0a-4b79-
+911a-5ac1eb9139a4.2 with preKeyId: <none>
+2023-12-06T08:45:32.891+0200 [main] INFO  LibSignal - [libsignal]: rust\protocol
+\src\state\session.rs:668: Skipping archive, current session state is fresh
+2023-12-06T08:45:33.054+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - C
+hecking for new message from server
+2023-12-06T08:45:36.055+0200 [main] DEBUG o.a.s.manager.helper.ReceiveHelper - H
+andling message actions
+2023-12-06T08:45:36.056+0200 [main] INFO  LibSignal - [WebSocketConnection]: [no
+rmal:1169015699] disconnect()
+2023-12-06T08:45:36.056+0200 [main] INFO  LibSignal - [WebSocketConnection]: [un
+identified:1747644505] disconnect()
+2023-12-06T08:45:36.058+0200 [main] INFO  com.zaxxer.hikari.HikariDataSource - H
+ikariPool-1 - Shutdown initiated...
+2023-12-06T08:45:36.063+0200 [main] INFO  com.zaxxer.hikari.HikariDataSource - H
+ikariPool-1 - Shutdown completed.
+2023-12-06T08:45:36.064+0200 [msl-cleanup] DEBUG o.a.s.m.s.s.MessageSendLogStore
+ - Stopping msl cleanup thread
+2023-12-06T08:45:36.067+0200 [Thread-0] DEBUG org.asamk.signal.Shutdown - JVM is
+ shutting down
+2023-12-06T08:45:36.067+0200 [Thread-0] DEBUG org.asamk.signal.Shutdown - Trigge
+ring shutdown.
+2023-12-06T08:45:36.068+0200 [Thread-0] DEBUG org.asamk.signal.Shutdown - Waitin
+g for app to shut down
+2023-12-06T08:45:36.068+0200 [Thread-0] DEBUG org.asamk.signal.Shutdown - Exitin
+g
+C:\Projects\signal-cli\build\install\signal-cli\bin>

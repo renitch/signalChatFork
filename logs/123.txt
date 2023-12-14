@@ -1,0 +1,46 @@
+C:\Projects\signal-cli\build\install\signal-cli\bin>signal-cli --trust-new-identities always --verbose --log-file log.log -a +380501058562 receive
+Envelope from: ?Даха? +380661150696 (device: 1) to +380501058562. Body: MessageEnvelope[sourceAddress=Optional[RecipientAddress[uuid=Optional[37f89019-bd36-4e24
+-b1d0-19da1704cc43], number=Optional[+380661150696], username=Optional.empty]], sourceDevice=1, timestamp=1701863848772, serverReceivedTimestamp=1701863849765,
+serverDeliveredTimestamp=1701863889049, isUnidentifiedSender=true, receipt=Optional[Receipt[when=1701863848772, type=READ, timestamps=[1701863784161]]], typing=
+Optional.empty, data=Optional.empty, edit=Optional.empty, sync=Optional.empty, call=Optional.empty, story=Optional.empty]
+Timestamp: 1701863848772 (2023-12-06T11:57:28.772Z)
+Server timestamps: received: 1701863849765 (2023-12-06T11:57:29.765Z) delivered: 1701863889049 (2023-12-06T11:58:09.049Z)
+Sent by unidentified/sealed sender
+Received a receipt message
+  When: 1701863848772 (2023-12-06T11:57:28.772Z)
+  Is read receipt
+  Timestamps:
+  - 1701863784161 (2023-12-06T11:56:24.161Z)
+
+Envelope from: ?Москаль? +380508101585 (device: 1) to +380501058562. Body: MessageEnvelope[sourceAddress=Optional[RecipientAddress[uuid=Optional[c7b73b80-9f71-4
+120-b1ff-90dda3002be8], number=Optional[+380508101585], username=Optional.empty]], sourceDevice=1, timestamp=1701863853996, serverReceivedTimestamp=170186385477
+6, serverDeliveredTimestamp=1701863889050, isUnidentifiedSender=true, receipt=Optional.empty, typing=Optional.empty, data=Optional.empty, edit=Optional.empty, s
+ync=Optional.empty, call=Optional.empty, story=Optional.empty]
+Timestamp: 1701863853996 (2023-12-06T11:57:33.996Z)
+Server timestamps: received: 1701863854776 (2023-12-06T11:57:34.776Z) delivered: 1701863889050 (2023-12-06T11:58:09.050Z)
+Sent by unidentified/sealed sender
+Exception: org.signal.libsignal.protocol.NoSessionException: missing sender key state for distribution ID c8398bb8-6a31-4ca2-851c-a5325e23b9c2 (ProtocolNoSessio
+nException)
+Exception: org.signal.libsignal.metadata.SealedSessionCipher.decrypt(SealedSessionCipher.java:190)
+
+Envelope from: ?Москаль? +380508101585 (device: 1) to +380501058562. Body: MessageEnvelope[sourceAddress=Optional[RecipientAddress[uuid=Optional[c7b73b80-9f71-4
+120-b1ff-90dda3002be8], number=Optional[+380508101585], username=Optional.empty]], sourceDevice=1, timestamp=1701863853996, serverReceivedTimestamp=170186389083
+7, serverDeliveredTimestamp=1701863890839, isUnidentifiedSender=true, receipt=Optional.empty, typing=Optional.empty, data=Optional[Data[timestamp=1701863853996,
+ groupContext=Optional[GroupContext[groupId=org.asamk.signal.manager.api.GroupIdV2@5ffa3e3b, isGroupUpdate=false, revision=4]], storyContext=Optional.empty, gro
+upCallUpdate=Optional.empty, body=Optional[Да нет, просто есть какбы договор - если забаранят - лутайте, лучше свои, чем пидары. Мне то оно уже не пригодиться],
+ expiresInSeconds=0, isExpirationUpdate=false, isViewOnce=false, isEndSession=false, isProfileKeyUpdate=false, hasProfileKey=true, reaction=Optional.empty, quot
+e=Optional.empty, payment=Optional.empty, attachments=[], remoteDeleteId=Optional.empty, sticker=Optional.empty, sharedContacts=[], mentions=[], previews=[], te
+xtStyles=[]]], edit=Optional.empty, sync=Optional.empty, call=Optional.empty, story=Optional.empty]
+Timestamp: 1701863853996 (2023-12-06T11:57:33.996Z)
+Server timestamps: received: 1701863890837 (2023-12-06T11:58:10.837Z) delivered: 1701863890839 (2023-12-06T11:58:10.839Z)
+Sent by unidentified/sealed sender
+Message timestamp: 1701863853996 (2023-12-06T11:57:33.996Z)
+Body: Да нет, просто есть какбы договор - если забаранят - лутайте, лучше свои, чем пидары. Мне то оно уже не пригодиться
+Group info:
+  Id: DRYEl95oW7Wy04ybYv7Alw49BJe0IVnCkTRpFtdeiHA=
+  Name: немає москаля
+  Revision: 4
+  Type: DELIVER
+With profile key
+
+Received: Content{receiptMessage=ReceiptMessage{type=DELIVERY, timestamp=[1701863853996]}}
