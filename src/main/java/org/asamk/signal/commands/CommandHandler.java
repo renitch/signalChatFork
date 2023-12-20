@@ -1,16 +1,22 @@
 package org.asamk.signal.commands;
 
-import net.sourceforge.argparse4j.inf.Namespace;
-
+import org.asamk.signal.Main;
 import org.asamk.signal.commands.exceptions.CommandException;
 import org.asamk.signal.manager.Manager;
 import org.asamk.signal.manager.MultiAccountManager;
 import org.asamk.signal.manager.ProvisioningManager;
 import org.asamk.signal.manager.RegistrationManager;
 import org.asamk.signal.output.OutputWriter;
+import org.quartz.SchedulerException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import net.sourceforge.argparse4j.inf.Namespace;
 
 public class CommandHandler {
 
+	private static final Logger logger = LoggerFactory.getLogger(CommandHandler.class);
+	
     final Namespace ns;
     final OutputWriter outputWriter;
 
@@ -32,6 +38,15 @@ public class CommandHandler {
     }
 
     public void handleLocalCommand(final LocalCommand command, final Manager manager) throws CommandException {
+
+    	try {
+    		if ("receive".equals(command.getName())) {
+    			Main.initQuartz(ns, manager, outputWriter);
+    		}
+		} catch (SchedulerException e) {
+			logger.error("Scheduling failed", e);
+		}
+
         command.handleCommand(ns, manager, outputWriter);
     }
 

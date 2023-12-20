@@ -50,6 +50,7 @@ dependencies {
     implementation("org.apache.commons:commons-lang3:3.14.0")
     implementation("commons-io:commons-io:2.15.1")
     implementation("commons-codec:commons-codec:1.16.0")
+    implementation("org.quartz-scheduler:quartz:2.3.2")
     implementation(project(":lib"))
 }
 
